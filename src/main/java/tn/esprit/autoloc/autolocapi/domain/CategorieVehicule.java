@@ -6,5 +6,3 @@ public enum CategorieVehicule {
     SUV,
     UTILITAIRE
 }
-
-

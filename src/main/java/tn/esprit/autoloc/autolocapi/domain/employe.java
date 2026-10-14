@@ -1,10 +1,7 @@
 package tn.esprit.autoloc.autolocapi.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "employe")
@@ -18,13 +15,16 @@ public class employe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmploye;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String nom;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String prenom;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private roleemploye role;
+
+    @ManyToOne
+    @JoinColumn(name = "agence_id")
+    private agence agence;
 }
